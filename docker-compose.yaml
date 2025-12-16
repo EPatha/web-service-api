@@ -1,0 +1,52 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: coba
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: toor
+    ports:
+      - "9000:80"
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+
+  php:
+    image: php:8.1-apache
+    container_name: php_app
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./note_app:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - app_network
+    command: >
+      bash -c "docker-php-ext-install mysqli && apache2-foreground"
+
+volumes:
+  mysql_data:
+
+networks:
+  app_network:
+    driver: bridge
