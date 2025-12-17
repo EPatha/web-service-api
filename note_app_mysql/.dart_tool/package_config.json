@@ -1,0 +1,16 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "note_app_mysql",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "3.10"
+    }
+  ],
+  "generator": "pub",
+  "generatorVersion": "3.10.4",
+  "flutterRoot": "file:///Users/ephesiansprismaranatha/flutter",
+  "flutterVersion": "3.38.5",
+  "pubCache": "file:///Users/ephesiansprismaranatha/.pub-cache"
+}

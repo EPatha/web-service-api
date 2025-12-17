@@ -1,0 +1,14 @@
+{
+  "roots": [
+    "note_app_mysql"
+  ],
+  "packages": [
+    {
+      "name": "note_app_mysql",
+      "version": "0.0.0",
+      "dependencies": [],
+      "devDependencies": []
+    }
+  ],
+  "configVersion": 1
+}
