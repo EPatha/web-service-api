@@ -15,14 +15,18 @@ if ($connection->connect_error) {
     die(json_encode(['error' => 'Connection failed: ' . $connection->connect_error]));
 }
 
-$nama_barang = $_POST['nama_barang'];
-$harga = $_POST['harga'];
-$stok = $_POST['stok'];
+$KdBrg = $_POST['KdBrg'];
+$NmBrg = $_POST['NmBrg'];
+$HrgBeli = $_POST['HrgBeli'];
+$HrgJual = $_POST['HrgJual'];
+$Stok = $_POST['Stok'];
 
 $result = mysqli_query($connection, "INSERT INTO barang SET 
-    nama_barang='$nama_barang', 
-    harga='$harga', 
-    stok='$stok'");
+    KdBrg='$KdBrg', 
+    NmBrg='$NmBrg', 
+    HrgBeli='$HrgBeli', 
+    HrgJual='$HrgJual', 
+    Stok='$Stok'");
 
 if ($result) {
     echo json_encode([

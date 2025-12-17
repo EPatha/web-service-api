@@ -15,8 +15,8 @@ if ($connection->connect_error) {
     die(json_encode(['error' => 'Connection failed: ' . $connection->connect_error]));
 }
 
-$id = $_GET['id'];
-$data = mysqli_query($connection, "SELECT * FROM barang WHERE id=" . $id);
+$KdBrg = $_GET['KdBrg'];
+$data = mysqli_query($connection, "SELECT * FROM barang WHERE KdBrg='" . $KdBrg . "'");
 $data = mysqli_fetch_array($data, MYSQLI_ASSOC);
 echo json_encode($data);
 

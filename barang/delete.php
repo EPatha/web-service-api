@@ -15,9 +15,9 @@ if ($connection->connect_error) {
     die(json_encode(['error' => 'Connection failed: ' . $connection->connect_error]));
 }
 
-$id = $_POST['id'];
+$KdBrg = $_POST['KdBrg'];
 
-$result = mysqli_query($connection, "DELETE FROM barang WHERE id=" . $id);
+$result = mysqli_query($connection, "DELETE FROM barang WHERE KdBrg='" . $KdBrg . "'");
 
 if ($result) {
     echo json_encode([
